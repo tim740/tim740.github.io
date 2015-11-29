@@ -1,2 +1,2 @@
- tim740.github.io
-site update check
+http://tim740.github.io
+
