@@ -1,0 +1,11 @@
+#header{
+  height: 200px;
+  background: url("background.jpg");
+  color: orange;
+}
+body {
+  font-family: Arial;
+}
+.glyphicon {
+  font-size: 40px;
+}
