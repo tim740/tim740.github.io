@@ -12,6 +12,11 @@ body {
   color: #ABB2BF;
   background-color: #282C34;
 }
+.container {
+  font-family: Arial;
+  color: #ABB2BF;
+  background-color: #282C34;
+}
 .glyphicon {
   font-size: 40px;
 }
