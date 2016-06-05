@@ -3,9 +3,14 @@
   color: orange;
 }
 body {
-  background-color: #282C34;
-  color: #ABB2BF;
   font-family: Arial;
+  color: #ABB2BF;
+  background-color: #282C34;
+}
+.nav {
+  font-family: Arial;
+  color: #ABB2BF;
+  background-color: #282C34;
 }
 .glyphicon {
   font-size: 40px;
