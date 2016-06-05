@@ -8,6 +8,7 @@ body {
   background-color: #282C34;
 }
 .navbar-inverse {
+  margin: 10px
   color: #ABB2BF;
   border-color: #ABB2BF;
   background-color: #282C34;
