@@ -26,100 +26,84 @@
 		</nav>
 
 		<div class="row">
-			<div class="col s12 m6">
-				<table style="width:100%">
-		  		<tr>
+			<table style="width:100%; table-layout: fixed;">
+				<tr>
+					<div class="col s12 m6">
+		    		<td>
+							<div class="card grey darken-1">
+				        <div class="card-content white-text">
+				          <span class="card-title">skUtilities</span>
+				          <p>Conversions, files and Utility Addon for Skript!</p>
+									<p>Latest Commit on GitHub: <span id="latestcommit"></span></p>
+				        </div>
+				        <div class="card-action">
+				          <a href="https://forums.skunity.com/t/3099?u=tim740" target="_blank">Thread</a>
+				        </div>
+				      </div>
+						</td>
+					</div>
 
-    				<td>
+					<div class="col s12 m6">
+		    		<td>
 							<div class="card grey darken-1">
 								<div class="card-content white-text">
-									<span class="card-title">Card Title</span>
-									<p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+									<span class="card-title">SkriptDark</span>
+									<p>Powerful IDE/UDL for Skirpt!</p>
 								</div>
 								<div class="card-action">
-									<a href="#">This is a link</a>
-									<a href="#">This is a link</a>
+									<a href="https://forums.skunity.com/t/1751?u=tim740" target="_blank">Atom</a>
+									<a href="https://forums.skunity.com/t/44?u=tim740" target="_blank">NP++</a>
 								</div>
 							</div>
 						</td>
+					</div>
 
-    				<td>
-							<div class="card grey darken-1">
-								<div class="card-content white-text">
-									<span class="card-title">Card Title</span>
-									<p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
-								</div>
-								<div class="card-action">
-									<a href="#">This is a link</a>
-									<a href="#">This is a link</a>
-								</div>
-							</div>
-						</td>
-
+					<div class="col s12 m6">
 						<td>
 							<div class="card grey darken-1">
 								<div class="card-content white-text">
-									<span class="card-title">Card Title</span>
-									<p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+									<span class="card-title">Aliases</span>
+									<p>Latest Skript aliases updated often with '_' support, Incudes a version checker plugin!</p>
 								</div>
 								<div class="card-action">
-									<a href="#">This is a link</a>
-									<a href="#">This is a link</a>
+									<a href="https://forums.skunity.com/t/40?u=tim740">Thread</a>
 								</div>
 							</div>
 						</td>
+					</div>
 
-		  		</tr>
-		  		<tr>
-		    		<td>place card here</td>
-		    		<td>and here</td>
-		    		<td>and here</td>
-		  		</tr>
-				</table>
-			</div>
+				</tr>
+			</table>
 		</div>
 
-     	<div class="row">
-        <div class="col s12 m6">
+		<hr>
 
-          <div class="card grey darken-1">
-            <div class="card-content white-text">
-              <span class="card-title">skUtilities</span>
-              <p>Conversions, files and Utility Addon for Skript!</p>
-            </div>
-            <div class="card-action">
-              <a href="https://forums.skunity.com/t/3099?u=tim740">Thread</a>
-            </div>
-          </div>
+		<p>Latest Commit on GitHub: <span id="latestcommit"></span></p>
 
-          <div class="card grey darken-1">
-            <div class="card-content white-text">
-              <span class="card-title">null</span>
-              <p>null</p>
-            </div>
-            <div class="card-action">
-              <a href="#">null</a>
-              <a href="#">null</a>
-            </div>
-          </div>
+		<script>
+		function loadCommits(){
 
-          <div class="card grey darken-1">
-            <div class="card-content white-text">
-              <span class="card-title">null</span>
-              <p>null</p>
-            </div>
-            <div class="card-action">
-              <a href="#">null</a>
-              <a href="#">null</a>
-            </div>
-          </div>
+		    var githubLink = "tim740/skUtilities";
 
-       	</div>
-     	</div>
+		    var result = null;
+		    var scriptUrl = "https://api.github.com/repos/"+ githubLink + "/commits";
+		    $.ajax({
+		        dataType: "json",
+		        url: scriptUrl,
+		        async: true,
+		        success: function(data) {
+		            var item = data[0];
+		            var commit = "<span>'"+item['commit']['message']+"'  <a target='_blank' href='"+item['html_url']+"'>"+item['sha'].substring(0, 7)+"</a></span>";
+		            $(commit).hide().appendTo("#latestcommit").fadeIn(2000);
+		        }
+		    });
+		}
+		loadCommits();
+		</script>
 
 	</body>
 	<foot>
-		<script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
 	</foot>
 </html>
