@@ -147,7 +147,7 @@
 			async: true,
 			success: function(data1) {
 					var item = data1[0];
-					var commit1 = "<span> <a target='_blank' href='"+item['html_url']+"'>"+item['sha'].substring(0, 7)+"</a><p>'"+item['commit']['message']+"'</p></span>";
+					var commit1 = "<span> <a target='_blank' href='"+item['html_url']+"'>"+item['sha'].substring(0, 7)+"</a><p>Description: '"+item['commit']['message']+"'</p></span>";
 					$(commit1).hide().appendTo("#latestcommit1").fadeIn(0);
 			}
 		});
@@ -164,7 +164,7 @@
 			async: true,
 			success: function(data2) {
 					var item = data2[0];
-					var commit2 = "<span> <a target='_blank' href='"+item['html_url']+"'>"+item['sha'].substring(0, 7)+"</a><p>'"+item['commit']['message']+"'</p></span>";
+					var commit2 = "<span> <a target='_blank' href='"+item['html_url']+"'>"+item['sha'].substring(0, 7)+"</a><p>Description: '"+item['commit']['message']+"'</p></span>";
 					$(commit2).hide().appendTo("#latestcommit2").fadeIn(0);
 			}
 		});
@@ -181,7 +181,7 @@
 			async: true,
 			success: function(data3) {
 					var item = data3[0];
-					var commit3 = "<span> <a target='_blank' href='"+item['html_url']+"'>"+item['sha'].substring(0, 7)+"</a><p>'"+item['commit']['message']+"'</p></span>";
+					var commit3 = "<span> <a target='_blank' href='"+item['html_url']+"'>"+item['sha'].substring(0, 7)+"</a><p>Description: '"+item['commit']['message']+"'</p></span>";
 					$(commit3).hide().appendTo("#latestcommit3").fadeIn(0);
 			}
 		});
