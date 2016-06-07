@@ -152,10 +152,7 @@
 			}
 		});
 	}
-	loadCommit1();
-	</script>
 
-	<script>
 	function loadCommit2(){
 		var scriptUrl = "https://api.github.com/repos/Skript-Atom/Language-Skript" + "/commits";
 		$.ajax({
@@ -169,10 +166,7 @@
 			}
 		});
 	}
-	loadCommit2();
-	</script>
 
-	<script>
 	function loadCommit3(){
 		var scriptUrl = "https://api.github.com/repos/tim740/skAliasesVerCheck" + "/commits";
 		$.ajax({
@@ -186,7 +180,9 @@
 			}
 		});
 	}
+
+	loadCommit1();
+	loadCommit2();
 	loadCommit3();
 	</script>
-
 </html>
