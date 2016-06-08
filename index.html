@@ -19,9 +19,10 @@
 					<li><a href="https://forums.spongepowered.org/users/tim740" target="_blank">Sponge</a></li>
 					<li><a href="https://www.spigotmc.org/members/tim740.14719" target="_blank">Spigot</a></li>
 					<li><a href="http://dev.bukkit.org/profiles/tim740" target="_blank">Bukkit</a></li>
+					<li><span id="latestcommit0"></span></p></li>
 				</ul>
 				<ul id="nav-mobile" class="right hide-on-med-and-down" style="margin-right: 100px;">
-					<li><a href="https://discord.gg/0lx4QhQvwelCZbEX"><strong>Skript Chat Discord (IRC):</strong> (Different from skUnity's Discord)<i class="material-icons right"></i> </a></li>
+					<li><a href="https://discord.gg/0lx4QhQvwelCZbEX"><b>Skript Chat Discord (IRC):</b> (Different from skUnity's Discord)<i class="material-icons right"></i> </a></li>
 				</ul>
 			</div>
 		</nav>
@@ -33,10 +34,10 @@
 		    		<td>
 							<div class="card grey darken-1">
 				        <div class="card-content white-text">
-				          <i class="material-icons">loop</i><span class="card-title"> skUtilities</span>
+				          <i class="material-icons">loop</i><span class="card-title"> <b>skUtilities</b></span>
 				          <p>Conversions, files and Utility Addon for Skript!</p>
 									<br>
-									<p>Last Commit: <span id="latestcommit1"></span></p>
+									<p><b>Last Commit:</b> <span id="latestcommit1"></span></p>
 				        </div>
 				        <div class="card-action">
 				          <a href="https://forums.skunity.com/t/3099?u=tim740" target="_blank">Thread</a>
@@ -50,10 +51,10 @@
 							<div class="card grey darken-1">
 								<div class="card-content white-text">
 
-      					<i class="material-icons">code</i><span class="card-title"> SkriptDark</span>
+      					<i class="material-icons">code</i><span class="card-title"> <b>SkriptDark</b></span>
 									<p>Powerful UDL for Skirpt!</p>
 									<br>
-									<p>Last Commit: <span id="latestcommit2"></span></p>
+									<p><b>Last Commit:</b> <span id="latestcommit2"></span></p>
 								</div>
 								<div class="card-action">
 									<a href="https://forums.skunity.com/t/1751?u=tim740" target="_blank">Atom</a>
@@ -67,10 +68,10 @@
 						<td>
 							<div class="card grey darken-1">
 								<div class="card-content white-text">
-									<i class="material-icons">view_list</i><span class="card-title"> Skript Aliases</span>
+									<i class="material-icons">view_list</i><span class="card-title"> <b>Skript Aliases</b></span>
 									<p>Updated Aliases & version checker plugin!</p>
 									<br>
-									<p>Last Commit: <span id="latestcommit3"></span></p>
+									<p><b>Last Commit:</b> <span id="latestcommit3"></span></p>
 								</div>
 								<div class="card-action">
 									<a href="https://forums.skunity.com/t/40?u=tim740">Thread</a>
@@ -90,7 +91,7 @@
 						<td width="23%">
 							<div class="card grey darken-1">
 								<div class="card-content white-text">
-									<i class="material-icons">clear_all</i><span class="card-title"> ClearLag</span>
+									<i class="material-icons">clear_all</i><span class="card-title"> <b>ClearLag</b></span>
 									<p>Skript replacement for the original plugin!</p>
 								</div>
 								<div class="card-action">
@@ -104,7 +105,7 @@
 						<td width="23%" height="100px">
 							<div class="card grey darken-1">
 								<div class="card-content white-text">
-									<i class="material-icons">mode_edit</i><span class="card-title"> Text Tester</span>
+									<i class="material-icons">mode_edit</i><span class="card-title"> <b>Text Tester</b></span>
 									<p>Test text without having to edit a skript!</p>
 								</div>
 								<div class="card-action">
@@ -118,7 +119,7 @@
 						<td width="23%" height="100px">
 							<div class="card grey darken-1">
 								<div class="card-content white-text">
-									<i class="material-icons">search</i><span class="card-title"> Spawn Egg Finder</span>
+									<i class="material-icons">search</i><span class="card-title"> <b>Spawn Egg Finder</b></span>
 									<p>View Every Spawn Egg! (Broken in 1.9)</p>
 								</div>
 								<div class="card-action">
@@ -136,53 +137,82 @@
 	<foot>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/js/materialize.min.js"></script>
+		<script src="jquery.timesince.js" type="text/javascript"></script>
 	</foot>
 
 	<script>
-	function loadCommit1(){
-		var scriptUrl = "https://api.github.com/repos/tim740/skUtilities" + "/commits";
-		$.ajax({
-			dataType: "json",
-			url: scriptUrl,
-			async: true,
-			success: function(data1) {
-					var item = data1[0];
-					var commit1 = "<span> <a target='_blank' href='"+item['html_url']+"'>"+item['sha'].substring(0, 7)+"</a><p>Description: '"+item['commit']['message']+"'</p></span>";
-					$(commit1).hide().appendTo("#latestcommit1").fadeIn(0);
-			}
-		});
-	}
 
-	function loadCommit2(){
-		var scriptUrl = "https://api.github.com/repos/Skript-Atom/Language-Skript" + "/commits";
-		$.ajax({
-			dataType: "json",
-			url: scriptUrl,
-			async: true,
-			success: function(data2) {
-					var item = data2[0];
-					var commit2 = "<span> <a target='_blank' href='"+item['html_url']+"'>"+item['sha'].substring(0, 7)+"</a><p>Description: '"+item['commit']['message']+"'</p></span>";
-					$(commit2).hide().appendTo("#latestcommit2").fadeIn(0);
-			}
-		});
-	}
+		function loadCommit0(){
+			var scriptUrl = "https://api.github.com/repos/tim740/tim740.github.io" + "/commits";
+			$.ajax({
+				dataType: "json",
+				url: scriptUrl,
+				async: true,
+				success: function(data0) {
+						var item = data0[0];
+						var commit0 = "<span> <a target='_blank' href='"+item['html_url']+"'>"+item['sha'].substring(0, 7)+"</span>";
+						$(commit0).hide().appendTo("#latestcommit0").fadeIn(0);
+				}
+			});
+		}
 
-	function loadCommit3(){
-		var scriptUrl = "https://api.github.com/repos/tim740/skAliasesVerCheck" + "/commits";
-		$.ajax({
-			dataType: "json",
-			url: scriptUrl,
-			async: true,
-			success: function(data3) {
-					var item = data3[0];
-					var commit3 = "<span> <a target='_blank' href='"+item['html_url']+"'>"+item['sha'].substring(0, 7)+"</a><p>Description: '"+item['commit']['message']+"'</p></span>";
-					$(commit3).hide().appendTo("#latestcommit3").fadeIn(0);
-			}
-		});
-	}
+		function loadCommit1(){
+			var scriptUrl = "https://api.github.com/repos/tim740/skUtilities" + "/commits";
+			$.ajax({
+				dataType: "json",
+				url: scriptUrl,
+				async: true,
+				success: function(data1) {
+						var item = data1[0];
+						var finp = (new Date).getTime() - new Date(item['commit']['committer']['date']).getTime();
+						var finr = finp /1000/60/60/24;
+						var fin = finr.toString().split(".");
 
-	loadCommit1();
-	loadCommit2();
-	loadCommit3();
+						var commit1 = "<span> <a target='_blank' href='"+item['html_url']+"'>"+item['sha'].substring(0, 7)+"</a> "+fin[0]+" days ago<p><b>Description:</b> '"+item['commit']['message']+"'</p></span>";
+						$(commit1).hide().appendTo("#latestcommit1").fadeIn(0);
+				}
+			});
+		}
+
+		function loadCommit2(){
+			var scriptUrl = "https://api.github.com/repos/Skript-Atom/Language-Skript" + "/commits";
+			$.ajax({
+				dataType: "json",
+				url: scriptUrl,
+				async: true,
+				success: function(data2) {
+						var item = data2[0];
+						var finp = (new Date).getTime() - new Date(item['commit']['committer']['date']).getTime();
+						var finr = finp /1000/60/60/24;
+						var fin = finr.toString().split(".");
+
+						var commit2 = "<span> <a target='_blank' href='"+item['html_url']+"'>"+item['sha'].substring(0, 7)+"</a> "+fin[0]+" days ago<p><b>Description:</b> '"+item['commit']['message']+"'</p></span>";
+						$(commit2).hide().appendTo("#latestcommit2").fadeIn(0);
+				}
+			});
+		}
+
+		function loadCommit3(){
+			var scriptUrl = "https://api.github.com/repos/tim740/skAliasesVerCheck" + "/commits";
+			$.ajax({
+				dataType: "json",
+				url: scriptUrl,
+				async: true,
+				success: function(data3) {
+						var item = data3[0];
+						var finp = (new Date).getTime() - new Date(item['commit']['committer']['date']).getTime();
+						var finr = finp /1000/60/60/24;
+						var fin = finr.toString().split(".");
+
+						var commit3 = "<span> <a target='_blank' href='"+item['html_url']+"'>"+item['sha'].substring(0, 7)+"</a> "+fin[0]+" days ago<p><b>Description:</b> '"+item['commit']['message']+"'</p></span>";
+						$(commit3).hide().appendTo("#latestcommit3").fadeIn(0);
+				}
+			});
+		}
+
+		loadCommit0();
+		loadCommit1();
+		loadCommit2();
+		loadCommit3();
 	</script>
 </html>
