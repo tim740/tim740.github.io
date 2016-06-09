@@ -155,6 +155,16 @@
 			});
 		}
 
+		function mthRound(n) {
+			var fins = Math.round(n /1000/60/60/24);
+			if (fins === 0) {
+				 var fin = "Today";
+			} else {
+				var fin = fins + " days ago";
+			}
+		  return fin;
+		}
+
 		function loadCommit1(){
 			var scriptUrl = "https://api.github.com/repos/tim740/skUtilities" + "/commits";
 			$.ajax({
@@ -163,14 +173,7 @@
 				async: true,
 				success: function(data1) {
 						var item = data1[0];
-						var finp = (new Date).getTime() - new Date(item['commit']['committer']['date']).getTime();
-						var finr = finp /1000/60/60/24;
-						var fins = finr.toString().split(".");
-						if (fins[0] === 0) {
-							 var fin = "Today";
-						} else {
-							var fin = fins[0] + " days ago";
-						}
+						var fin = mthRound((new Date).getTime() - new Date(item['commit']['committer']['date']).getTime());
 						var commit1 = "<span> <a target='_blank' href='"+item['html_url']+"'>"+item['sha'].substring(0, 7)+"</a> "+fin+"<p><b>Description:</b> '"+item['commit']['message']+"'</p></span>";
 						$(commit1).hide().appendTo("#latestcommit1").fadeIn(0);
 				}
@@ -185,14 +188,7 @@
 				async: true,
 				success: function(data2) {
 						var item = data2[0];
-						var finp = (new Date).getTime() - new Date(item['commit']['committer']['date']).getTime();
-						var finr = finp /1000/60/60/24;
-						var fins = finr.toString().split(".");
-						if (fins[0] === 0) {
-							 var fin = "Today";
-						} else {
-							var fin = fins[0] + " days ago";
-						}
+						var fin = mthRound((new Date).getTime() - new Date(item['commit']['committer']['date']).getTime());
 						var commit2 = "<span> <a target='_blank' href='"+item['html_url']+"'>"+item['sha'].substring(0, 7)+"</a> "+fin+"<p><b>Description:</b> '"+item['commit']['message']+"'</p></span>";
 						$(commit2).hide().appendTo("#latestcommit2").fadeIn(0);
 				}
@@ -207,14 +203,7 @@
 				async: true,
 				success: function(data3) {
 						var item = data3[0];
-						var finp = (new Date).getTime() - new Date(item['commit']['committer']['date']).getTime();
-						var finr = finp /1000/60/60/24;
-						var fins = finr.toString().split(".");
-						if (fins[0] === 0) {
-							 var fin = "Today";
-						} else {
-							var fin = fins[0] + " days ago";
-						}
+						var fin = mthRound((new Date).getTime() - new Date(item['commit']['committer']['date']).getTime());
 						var commit3 = "<span> <a target='_blank' href='"+item['html_url']+"'>"+item['sha'].substring(0, 7)+"</a> "+fin+"<p><b>Description:</b> '"+item['commit']['message']+"'</p></span>";
 						$(commit3).hide().appendTo("#latestcommit3").fadeIn(0);
 				}
