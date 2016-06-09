@@ -156,7 +156,7 @@
 		}
 
 		function mthRound(n) {
-			var fins = Math.round(n /1000/60/60/24);
+			var fins = Math.round(((new Date).getTime() - n) /1000/60/60/24);
 			if (fins === 0) {
 				var fin = "Today";
 			} else {
@@ -164,6 +164,10 @@
 			}
 			return fin;
 		}
+		function buildString(u, h, t, d) {
+			return "<span> <a target='_blank' href='"+u+"'>"+h.substring(0, 7)+"</a> "+t+"<p><b>Description:</b> '"+d+"'</p></span>";
+		}
+
 
 		function loadCommit1(){
 			var scriptUrl = "https://api.github.com/repos/tim740/skUtilities" + "/commits";
@@ -173,8 +177,7 @@
 				async: true,
 				success: function(data1) {
 						var item = data1[0];
-						var fin = mthRound((new Date).getTime() - new Date(item['commit']['committer']['date']).getTime());
-						var commit1 = "<span> <a target='_blank' href='"+item['html_url']+"'>"+item['sha'].substring(0, 7)+"</a> "+fin+"<p><b>Description:</b> '"+item['commit']['message']+"'</p></span>";
+						var commit1 = buildString(item['html_url'], item['sha'], mthRound(new Date(item['commit']['committer']['date']).getTime()), item['commit']['message']);
 						$(commit1).hide().appendTo("#latestcommit1").fadeIn(0);
 				}
 			});
@@ -188,8 +191,7 @@
 				async: true,
 				success: function(data2) {
 						var item = data2[0];
-						var fin = mthRound((new Date).getTime() - new Date(item['commit']['committer']['date']).getTime());
-						var commit2 = "<span> <a target='_blank' href='"+item['html_url']+"'>"+item['sha'].substring(0, 7)+"</a> "+fin+"<p><b>Description:</b> '"+item['commit']['message']+"'</p></span>";
+						var commit2 = buildString(item['html_url'], item['sha'], mthRound(new Date(item['commit']['committer']['date']).getTime()), item['commit']['message']);
 						$(commit2).hide().appendTo("#latestcommit2").fadeIn(0);
 				}
 			});
@@ -203,8 +205,7 @@
 				async: true,
 				success: function(data3) {
 						var item = data3[0];
-						var fin = mthRound((new Date).getTime() - new Date(item['commit']['committer']['date']).getTime());
-						var commit3 = "<span> <a target='_blank' href='"+item['html_url']+"'>"+item['sha'].substring(0, 7)+"</a> "+fin+"<p><b>Description:</b> '"+item['commit']['message']+"'</p></span>";
+						var commit3 = buildString(item['html_url'], item['sha'], mthRound(new Date(item['commit']['committer']['date']).getTime()), item['commit']['message']);
 						$(commit3).hide().appendTo("#latestcommit3").fadeIn(0);
 				}
 			});
