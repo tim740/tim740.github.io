@@ -165,9 +165,13 @@
 						var item = data1[0];
 						var finp = (new Date).getTime() - new Date(item['commit']['committer']['date']).getTime();
 						var finr = finp /1000/60/60/24;
-						var fin = finr.toString().split(".");
-
-						var commit1 = "<span> <a target='_blank' href='"+item['html_url']+"'>"+item['sha'].substring(0, 7)+"</a> "+fin[0]+" days ago<p><b>Description:</b> '"+item['commit']['message']+"'</p></span>";
+						var fins = finr.toString().split(".");
+						if (fins[0] === 0) {
+							 var fin = "Today";
+						} else {
+							var fin = fins[0] + " days ago";
+						}
+						var commit1 = "<span> <a target='_blank' href='"+item['html_url']+"'>"+item['sha'].substring(0, 7)+"</a> "+fin+"<p><b>Description:</b> '"+item['commit']['message']+"'</p></span>";
 						$(commit1).hide().appendTo("#latestcommit1").fadeIn(0);
 				}
 			});
@@ -183,9 +187,13 @@
 						var item = data2[0];
 						var finp = (new Date).getTime() - new Date(item['commit']['committer']['date']).getTime();
 						var finr = finp /1000/60/60/24;
-						var fin = finr.toString().split(".");
-
-						var commit2 = "<span> <a target='_blank' href='"+item['html_url']+"'>"+item['sha'].substring(0, 7)+"</a> "+fin[0]+" days ago<p><b>Description:</b> '"+item['commit']['message']+"'</p></span>";
+						var fins = finr.toString().split(".");
+						if (fins[0] === 0) {
+							 var fin = "Today";
+						} else {
+							var fin = fins[0] + " days ago";
+						}
+						var commit2 = "<span> <a target='_blank' href='"+item['html_url']+"'>"+item['sha'].substring(0, 7)+"</a> "+fin+"<p><b>Description:</b> '"+item['commit']['message']+"'</p></span>";
 						$(commit2).hide().appendTo("#latestcommit2").fadeIn(0);
 				}
 			});
@@ -201,9 +209,13 @@
 						var item = data3[0];
 						var finp = (new Date).getTime() - new Date(item['commit']['committer']['date']).getTime();
 						var finr = finp /1000/60/60/24;
-						var fin = finr.toString().split(".");
-
-						var commit3 = "<span> <a target='_blank' href='"+item['html_url']+"'>"+item['sha'].substring(0, 7)+"</a> "+fin[0]+" days ago<p><b>Description:</b> '"+item['commit']['message']+"'</p></span>";
+						var fins = finr.toString().split(".");
+						if (fins[0] === 0) {
+							 var fin = "Today";
+						} else {
+							var fin = fins[0] + " days ago";
+						}
+						var commit3 = "<span> <a target='_blank' href='"+item['html_url']+"'>"+item['sha'].substring(0, 7)+"</a> "+fin+"<p><b>Description:</b> '"+item['commit']['message']+"'</p></span>";
 						$(commit3).hide().appendTo("#latestcommit3").fadeIn(0);
 				}
 			});
