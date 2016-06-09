@@ -140,7 +140,6 @@
 	</foot>
 
 	<script>
-
 		function loadCommit0(){
 			var scriptUrl = "https://api.github.com/repos/tim740/tim740.github.io" + "/commits";
 			$.ajax({
@@ -155,19 +154,15 @@
 			});
 		}
 
-		function mthRound(n) {
-			var fins = Math.round(((new Date).getTime() - n) /1000/60/60/24);
-			if (fins === 0) {
-				var fin = "Today";
+		function buildString(i, t) {
+			var ftr = Math.round(((new Date).getTime() - t) /1000/60/60/24);
+			if (ftr === 0) {
+				var ft = "Today";
 			} else {
-				var fin = fins + " days ago";
+				var ft = ftr + " days ago";
 			}
-			return fin;
+			return "<span> <a target='_blank' href='"+i['html_url']+"'>"+i['sha'].substring(0, 7)+"</a> "+ft+"<p><b>Description:</b> '"+i['commit']['message']+"'</p></span>";
 		}
-		function buildString(u, h, t, d) {
-			return "<span> <a target='_blank' href='"+u+"'>"+h.substring(0, 7)+"</a> "+t+"<p><b>Description:</b> '"+d+"'</p></span>";
-		}
-
 
 		function loadCommit1(){
 			var scriptUrl = "https://api.github.com/repos/tim740/skUtilities" + "/commits";
@@ -177,8 +172,7 @@
 				async: true,
 				success: function(data1) {
 						var item = data1[0];
-						var commit1 = buildString(item['html_url'], item['sha'], mthRound(new Date(item['commit']['committer']['date']).getTime()), item['commit']['message']);
-						$(commit1).hide().appendTo("#latestcommit1").fadeIn(0);
+						$(buildString(item, new Date(item['commit']['committer']['date']).getTime())).hide().appendTo("#latestcommit1").fadeIn(0);
 				}
 			});
 		}
@@ -191,8 +185,7 @@
 				async: true,
 				success: function(data2) {
 						var item = data2[0];
-						var commit2 = buildString(item['html_url'], item['sha'], mthRound(new Date(item['commit']['committer']['date']).getTime()), item['commit']['message']);
-						$(commit2).hide().appendTo("#latestcommit2").fadeIn(0);
+						$(buildString(item, new Date(item['commit']['committer']['date']).getTime())).hide().appendTo("#latestcommit2").fadeIn(0);
 				}
 			});
 		}
@@ -205,8 +198,7 @@
 				async: true,
 				success: function(data3) {
 						var item = data3[0];
-						var commit3 = buildString(item['html_url'], item['sha'], mthRound(new Date(item['commit']['committer']['date']).getTime()), item['commit']['message']);
-						$(commit3).hide().appendTo("#latestcommit3").fadeIn(0);
+						$(buildString(item, new Date(item['commit']['committer']['date']).getTime())).hide().appendTo("#latestcommit3").fadeIn(0);
 				}
 			});
 		}
