@@ -189,7 +189,7 @@
 			var ftr = Math.round(((new Date).getTime() - new Date(i['commit']['committer']['date']).getTime()) /1000/60/60/24);
 			if (ftr === 0) {
 				var ft = "Today";
-			} (ftr === 1) {
+			} else if (ftr === 1) {
 				var ft = "Yesterday";
 			} else {
 				var ft = ftr + " days ago";
