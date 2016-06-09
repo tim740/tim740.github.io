@@ -5,6 +5,7 @@
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.6/css/materialize.min.css">
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 		<link type="text/css" rel="stylesheet" href="style.css">
+		<meta charset=utf-8>
 	</head>
 	<body>
 
@@ -19,7 +20,7 @@
 					<li><a href="https://forums.spongepowered.org/users/tim740" target="_blank">Sponge</a></li>
 					<li><a href="https://www.spigotmc.org/members/tim740.14719" target="_blank">Spigot</a></li>
 					<li><a href="http://dev.bukkit.org/profiles/tim740" target="_blank">Bukkit</a></li>
-					<li><span id="latestcommit0"></span></p></li>
+					<li><span id="webcommit"></span></p></li>
 				</ul>
 				<ul id="nav-mobile" class="right hide-on-med-and-down" style="margin-right: 100px;">
 					<li><a href="https://discord.gg/0lx4QhQvwelCZbEX"><b>Skript Chat Discord (IRC):</b> (Different from skUnity's Discord)<i class="material-icons right"></i> </a></li>
@@ -37,7 +38,7 @@
 									<i class="material-icons">loop</i><span class="card-title"> <b>skUtilities</b></span>
 									<p>Conversions, files and Utility Addon for Skript!</p>
 									<br>
-									<p><b>Last Commit:</b> <span id="latestcommit1"></span></p>
+									<p><b>Last Commit:</b> <span id="lcommit1"></span></p>
 								</div>
 								<div class="card-action">
 									<a href="https://forums.skunity.com/t/3099?u=tim740" target="_blank">Thread</a>
@@ -54,7 +55,7 @@
 								<i class="material-icons">code</i><span class="card-title"> <b>SkriptDark</b></span>
 									<p>Powerful UDL for Skirpt!</p>
 									<br>
-									<p><b>Last Commit:</b> <span id="latestcommit2"></span></p>
+									<p><b>Last Commit:</b> <span id="lcommit2"></span></p>
 								</div>
 								<div class="card-action">
 									<a href="https://forums.skunity.com/t/1751?u=tim740" target="_blank">Atom</a>
@@ -71,7 +72,7 @@
 									<i class="material-icons">view_list</i><span class="card-title"> <b>Skript Aliases</b></span>
 									<p>Updated Aliases & version checker plugin!</p>
 									<br>
-									<p><b>Last Commit:</b> <span id="latestcommit3"></span></p>
+									<p><b>Last Commit:</b> <span id="lcommit3"></span></p>
 								</div>
 								<div class="card-action">
 									<a href="https://forums.skunity.com/t/40?u=tim740">Thread</a>
@@ -141,21 +142,51 @@
 
 	<script>
 		function loadCommit0(){
-			var scriptUrl = "https://api.github.com/repos/tim740/tim740.github.io" + "/commits";
 			$.ajax({
 				dataType: "json",
-				url: scriptUrl,
+				url: "https://api.github.com/repos/tim740/tim740.github.io" + "/commits",
 				async: true,
 				success: function(data0) {
-						var item = data0[0];
-						var commit0 = "<span> <a target='_blank' href='"+item['html_url']+"'>"+item['sha'].substring(0, 7)+"</span>";
-						$(commit0).hide().appendTo("#latestcommit0").fadeIn(0);
+						var i = data0[0];
+						$("<span> <a target='_blank' href='"+i['html_url']+"'>"+i['sha'].substring(0, 7)+"</span>").hide().appendTo("#webcommit").fadeIn(0);
 				}
 			});
 		}
+		loadCommit0();
 
-		function buildString(i, t) {
-			var ftr = Math.round(((new Date).getTime() - t) /1000/60/60/24);
+		function loadCommits(){
+			$.ajax({
+				dataType: "json",
+				url: "https://api.github.com/repos/tim740/skUtilities" + "/commits",
+				async: true,
+				success: function(data1) {
+						var i = data1[0];
+						$(buildString(i)).hide().appendTo("#lcommit1").fadeIn(0);
+				}
+			});
+			$.ajax({
+				dataType: "json",
+				url: "https://api.github.com/repos/Skript-Atom/Language-Skript" + "/commits",
+				async: true,
+				success: function(data2) {
+						var i = data2[0];
+						$(buildString(i)).hide().appendTo("#lcommit2").fadeIn(0);
+				}
+			});
+			$.ajax({
+				dataType: "json",
+				url: "https://api.github.com/repos/tim740/skAliasesVerCheck" + "/commits",
+				async: true,
+				success: function(data3) {
+						var i = data3[0];
+						$(buildString(i)).hide().appendTo("#lcommit3").fadeIn(0);
+				}
+			});
+		}
+		loadCommits();
+
+		function buildString(i) {
+			var ftr = Math.round(((new Date).getTime() - new Date(i['commit']['committer']['date']).getTime()) /1000/60/60/24);
 			if (ftr === 0) {
 				var ft = "Today";
 			} else {
@@ -163,49 +194,5 @@
 			}
 			return "<span> <a target='_blank' href='"+i['html_url']+"'>"+i['sha'].substring(0, 7)+"</a> "+ft+"<p><b>Description:</b> '"+i['commit']['message']+"'</p></span>";
 		}
-
-		function loadCommit1(){
-			var scriptUrl = "https://api.github.com/repos/tim740/skUtilities" + "/commits";
-			$.ajax({
-				dataType: "json",
-				url: scriptUrl,
-				async: true,
-				success: function(data1) {
-						var item = data1[0];
-						$(buildString(item, new Date(item['commit']['committer']['date']).getTime())).hide().appendTo("#latestcommit1").fadeIn(0);
-				}
-			});
-		}
-
-		function loadCommit2(){
-			var scriptUrl = "https://api.github.com/repos/Skript-Atom/Language-Skript" + "/commits";
-			$.ajax({
-				dataType: "json",
-				url: scriptUrl,
-				async: true,
-				success: function(data2) {
-						var item = data2[0];
-						$(buildString(item, new Date(item['commit']['committer']['date']).getTime())).hide().appendTo("#latestcommit2").fadeIn(0);
-				}
-			});
-		}
-
-		function loadCommit3(){
-			var scriptUrl = "https://api.github.com/repos/tim740/skAliasesVerCheck" + "/commits";
-			$.ajax({
-				dataType: "json",
-				url: scriptUrl,
-				async: true,
-				success: function(data3) {
-						var item = data3[0];
-						$(buildString(item, new Date(item['commit']['committer']['date']).getTime())).hide().appendTo("#latestcommit3").fadeIn(0);
-				}
-			});
-		}
-
-		loadCommit0();
-		loadCommit1();
-		loadCommit2();
-		loadCommit3();
 	</script>
 </html>
