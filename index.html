@@ -196,7 +196,7 @@
 			} else {
 				var ft = ftr + " days ago";
 			}
-			return "<span> <a target='_blank' href='"+i['html_url']+"'>"+i['sha'].substring(0, 7)+"</a> "+ft+"<p><b>Description:</b> '"+i['commit']['message']+"'</p></span>";
+			return "<span> <a target='_blank' href='"+i['html_url']+"'>"+i['sha'].substring(0, 7)+"</a> "+ft+"<p><b>Description:</b> '"+i['commit']['message']+i['commit']['number']+"'</p></span>";
 		}
 	</script>
 </html>
