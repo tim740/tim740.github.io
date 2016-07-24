@@ -38,7 +38,7 @@
 									<i class="material-icons">loop</i><span class="card-title"> <b>skUtilities</b></span>
 									<p>Conversions, files and Utility Addon for Skript!</p>
 									<br>
-									<p><b>Last Commit:</b> <span id="lgc1"></span></p>
+									<p><span id="lgc1"></span></p>
 								</div>
 								<div class="card-action">
 									<a href="https://forums.skunity.com/t/3099?u=tim740" target="_blank">Thread</a>
@@ -57,7 +57,7 @@
 								<i class="material-icons">code</i><span class="card-title"> <b>SkriptDark</b></span>
 									<p>Powerful UDL for Skirpt!</p>
 									<br>
-									<p><b>Last Commit:</b> <span id="lgc2"></span></p>
+									<p><span id="lgc2"></span></p>
 								</div>
 								<div class="card-action">
 									<a href="https://forums.skunity.com/t/1751?u=tim740" target="_blank">Atom</a>
@@ -74,7 +74,7 @@
 									<i class="material-icons">view_list</i><span class="card-title"> <b>Skript Aliases</b></span>
 									<p>Updated Aliases & version checker plugin!</p>
 									<br>
-									<p><b>Last Commit:</b> <span id="lgc3"></span></p>
+									<p><span id="lgc3"></span></p>
 								</div>
 								<div class="card-action">
 									<a href="https://forums.skunity.com/t/40?u=tim740">Thread</a>
@@ -196,7 +196,7 @@
 			} else {
 				var ft = ftr + " days ago";
 			}
-			return "<span> <a target='_blank' href='"+i['html_url']+"'>"+i['sha'].substring(0, 7)+"</a> "+ft+"<p><b>Description:</b> '"+i['commit']['message']+i['commit']['number']+"'</p></span>";
+			return "<b>Last Commit:</b> <span> <a target='_blank' href='"+i['html_url']+"'>"+i['sha'].substring(0, 7)+"</a> "+ft+"<p><b>Description:</b> '"+i['commit']['message']+"'</p></span>";
 		}
 	</script>
 </html>
