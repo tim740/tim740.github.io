@@ -11,7 +11,7 @@
 		<nav>
 			<div class="grey darken-3 nav-wrapper">
 				<ul id="nav-mobile" class="center hide-on-med-and-down">
-					<li><span id="webcommit"></span></p></li>
+					<li>v<span id="webcommit"></span></p></li>
 				</ul>
 				<ul id="nav-mobile" class="left hide-on-med-and-down" style="margin-left: 25px;">
 					<li><a href="https://github.com/tim740"target="_blank">GitHub</a></li>
@@ -145,7 +145,7 @@
 				async: true,
 				success: function(data0) {
 						var i = data0[0];
-						$("<span> <a target='_blank' href='"+i['html_url']+"'>"+i['sha'].substring(0, 7)+"</span>").hide().appendTo("#webcommit").fadeIn(0);
+						$("<span><a target='_blank' href='"+i['html_url']+"'>"+i['sha'].substring(0, 7)+"</span>").hide().appendTo("#webcommit").fadeIn(0);
 				}
 			});
 		}
